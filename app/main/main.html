@@ -1,0 +1,28 @@
+<div class="col-sn-18 col-sm-offset-1" ng-controller="NavigationController">
+   <div ng-show="loggedIn">
+     <div class="row" ng-controller="MainController" >
+            <textarea ng-model="newWaste"
+                      ng-keypress="sendWaste($event)"
+                      class="form-control"
+                      placeholder="Post Waste.... then press Enter">
+            </textarea>
+     </div>
+    </div>
+    
+    <div class="row">
+        <table class="waste-section">
+            <tr> <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">Hay {{difference}} nuevas publicaciones</a></tr>
+            <tr ng-repeat="waste in wastes">
+                <td>{{waste.user}}
+                    <image ng-src="{{waste.userImage}}" class="ing-responsive">
+                </td>
+                
+                <td
+                    <strong>{{waste.date | date: 'MM/dd/yyyy hh:mm'}}</strong> <br>
+                    <p>{{waste.content}}</p>
+                    
+                </td>
+            </tr>
+        </table> 
+    </div>
+</div>

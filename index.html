@@ -1,0 +1,48 @@
+<html ng-app="WebDev">
+	<head>
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css"/>
+		<link rel="stylesheet" href="app/css/main.css"/>
+	</head>
+    
+    <script src="node_modules/angular/angular.js"></script>
+    <script src="angular-route.js"> </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+	<script src="app/app.js"></script>
+    
+    <!-- Controllers -->
+	<script src="app/signup/signup-controller.js"></script>
+	<script src="app/navigation/navigation-controller.js"></script>
+	<script src="app/profile/edit-profile-controller.js"></script>
+    <script src="app/main/main-controller.js"></script>
+    
+	<!-- Libraries -->
+	<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
+	<script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
+	<script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
+    
+   <body ng-controller="NavigationController">
+       
+        <ul class="nav nav-pills" ng-controller="NavigationController">
+        <li role="presentation" class="active"><a ui-sref="main">Home</a></li>
+        <li role="presentation"><a ng-show="!loggedIn" ui-sref="login">Login</a></li>
+        <li role="presentation"><a ng-show="loggedIn" ui-sref="editProfile">Profile</a></li>
+        <li role="presentation"><a ng-show="loggedIn" ng-Click="logOut();">Cerrar Sesion</a></li>
+        <li role="presentation"><a ng-show="loggedIn" ng-Click="Logged();">Sesion</a></li>
+        </ul>
+        
+        <!--<div ng-show="loggedIn">
+                  <div class="col-sn-18 col-sm-offset-1" ng-controller="MainController">
+                      <textarea ng-model="newWaste"
+                          ng-keypress="sendWaste($event)"
+                          class="form-control"
+                          placeholder="Nueva Publicacion ... Presiona Enter para Guardarla">
+                      </textarea>
+                  </div>
+        </div>-->
+
+		<div ui-view></div>
+	</body>
+
+	
+</html>
