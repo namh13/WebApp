@@ -1,5 +1,15 @@
-<div class="col-sn-18 col-sm-offset-1" ng-controller="NavigationController">
-   
+<div class="col-sn-18 col-sm-offset-1" ng-controller="NavigationController">    
+    <!--<div class="row">
+        <textarea ng-model="newWaste"
+            ng-keypress="sendWaste($event)"
+            class="form-control"
+            placeholder="Post Comment.... then press Enter">
+        </textarea>
+    </div>-->
+    <div class="row">
+        <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'video/*'" accept="'video/*'">
+            Subir un video
+        </div>
     </div>
     <div class="row" ng-controller="MainController" >
         <table class="waste-section">
