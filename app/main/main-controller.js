@@ -26,7 +26,9 @@
                     }).error(function(error){
                             console.error(error);
                     })
+                   window.location.reload(true);
                 }
+                
             };
             
             function getWastes (initial){
