@@ -6,11 +6,25 @@
              
 			$stateProvider
 				.state('signUp', {
+                resolve: {
+                  "revisar": function($rootScope){
+                      if($rootScope.loggedIn){
+                          window.location.hash = 'main';
+                      }
+                  }  
+                },
 				url: "/signup",
 				templateUrl: "app/signup/signup.html",
 				controller: "SignupController"		
 			})
 				.state('editProfile', {
+                resolve: {
+                  "check": function($rootScope){
+                      if(!$rootScope.loggedIn){
+                          window.location.hash = 'login';
+                      }
+                  }  
+                },
                 url: "/edit-profile",
 				templateUrl: "app/profile/edit-profile-view.html",
 				controller: "EditProfileController"
