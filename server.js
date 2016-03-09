@@ -39,6 +39,7 @@ app.get('/api/waste/get', wasteController.getWastes);
 
 // Resource
 app.post('/api/resource/post', resourceController.postResource);
+app.get('/api/resource/get', resourceController.getResource);
 
 app.listen('3000', function(){
 	console.log("Listening for localhost 3000");

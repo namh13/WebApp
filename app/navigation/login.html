@@ -4,8 +4,8 @@
               <input type="text" class="form-control" ng-model="login.email">
               <strong>Password:</strong>
               <input type="password" class="form-control" ng-model="login.password">
-              <button ng-click="logUserIn()">Login</button>
-              <button ui-sref="main">Cancelar</button>
+              <input type="button" class="btn btn-primary" value="Login" ng-click="logUserIn()">
+              <input type="button" class="btn btn-primary" value="Cancelar" ui-sref="main">
               <a ui-sref="signUp">Create An Account</a>
         </div>
 </div>

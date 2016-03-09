@@ -7,7 +7,24 @@
         <link rel="stylesheet" type="text/css" href="app/css/lineiconsStyle.css"/>
         <link rel="stylesheet" href="app/css/style-responsive.css"/>
         <link rel="stylesheet" type="text/css" href="app/css/zabuto_calendar.css"/>
+	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+        <link href="assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="assets/css/video-default.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="./fancybox/jquery.fancybox-1.3.4.css" media="screen" />
+        <link rel="stylesheet" href="style.css" />
+        <script type="text/javascript" src="assets/js/jquery-1.8.1.min.js"></script>
+        <script type="text/javascript" src="assets/js/jquery.video-ui.js"></script>
+       
+        	
+        <!-- Add jQuery library -->
+        <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+ 
+        <!-- Add fancyBox -->
+        <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+        <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
         
+       
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
@@ -18,16 +35,21 @@
 
    <!-- <script src="app/css/Chart.js"></script> -->
 	</head>
-    
-    <script src="node_modules/angular/angular.js"></script>
-    <script src="angular-route.js"> </script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
-	<script src="app/app.js"></script>
-    
-    
+
+
+
+
    <body ng-controller="NavigationController">
-       
+
+
+
+		 	<script src="node_modules/angular/angular.js"></script>
+     	<!--<script src="angular-route.js"> </script>-->
+     	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/X.Y.Z/angular-route.js"></script>
+ 			<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
+			<script src="app/app.js"></script>
+
+
       <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -37,91 +59,166 @@
              <!-- <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div> -->
-              
+
             <!--logo start-->
             <a ui-sref="main" class="logo"><b>Aplicaciones Web</b></a>
             <!--logo end-->
-            
+
             <div class="top-menu">
             	<ul class="nav pull-right top-menu" ng-controller="NavigationController">
-                    <li><a class="logout" ng-show="!loggedIn" ui-sref="login">Login</a></li>
-                    <li><a class="logout" ng-show="loggedIn" ng-Click="logOut();">Logout</a></li>
+                    <li><input type="button" value="Login" class="btn btn-primary" ng-show="!loggedIn" ui-sref="login"></li>
+                    <li><input type="button" value="Logout" class="btn btn-primary" ng-show="loggedIn" ng-Click="logOut();"></li>
             	</ul>
             </div>
         </header>
       <!--header end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
+			<!--sidebar start-->
       <aside >
-          <div id="sidebar"  class="nav-collapse" ng-controller="MainController">
+          <div id="sidebar"  class="row nav nav-collapse" ng-controller="MainController">
               <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a ui-sref="main"><image src="app/images/mean.png" class="img-square" width="70"></a></p>
-              	  <!-- <p class="centered"><a image ng-src="{{image}}" class="img-square" width="70"></a></p>-->
-                    
-                  <li class="mt">
-                      <a ui-sref="main">
-                          <i class="fa fa-home"></i>
-                          <span>Inicio</span>
-                      </a>
-                  </li>
-                  <li class="mt">
-                      <a ng-show="loggedIn" ui-sref="editProfile">
-                          <i class="fa fa-user"></i>
-                          <span>Editar Perfil</span>
-                      </a>
-                  </li>
+							<div class="">
+								<ul class="sidebar-menu" id="nav-accordion">
+
+										<p class="centered"><a ui-sref="main"><img src="app/images/mean.png" class="img-square" width="70"></a></p>
+										<!-- <p class="centered"><a image ng-src="{{image}}" class="img-square" width="70"></a></p>-->
+
+										<li class="mt">
+												<a ui-sref="main">
+														<i class="fa fa-home"></i>
+														<span>Inicio</span>
+												</a>
+										</li>
+										<li class="mt">
+												<a ng-show="loggedIn" ui-sref="editProfile">
+														<i class="fa fa-user"></i>
+														<span>Editar Perfil</span>
+												</a>
+										</li>
+                                    </ul>
+							</div>
+
           </div>
       </aside>
+
+
       <!--sidebar end-->
-      
+
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-     
+
       <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-              
-               <div ui-view></div>
-                
-          </section>
+      <section id="main-content" class="">
+
+          <div class="">
+              <div class="wrapper">
+
+                  <div class="col-md-9">
+                      <div ui-view> <br> <br> </div>
+                  </div>
+
+              </div>
+          </div>
+
       </section>
 
       <!--main content end-->
-      
+
+          <!--ADS/calendar-->
+       <!--   <aside class="">
+              <div id="" class=" nav nav-collapse navbar-right" >
+                  <div class="col-md-4 well">
+                      <ul class="sidebar-menu " id="">
+                          <li>
+                              <div class="">
+                                  <div class="">
+                                      <p class="centered">Calendario</p>
+                                      <button class="btn btn-primary">Info</button>
+                                  </div>
+                              </div>
+                          </li>
+                          <li class="mt">
+                              <div class="">
+                                  <p>ADS</p>
+                              </div>
+                          </li>
+                          <li class="mt">
+                              <div class="">
+                                  <p>ADS</p>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+
+              </div>
+
+          </aside>
+          -->
+
       <!-- **********************************************************************************************************************************************************
       DOWN CONTENT
       *********************************************************************************************************************************************************** -->
-     
+
       <!--footer start-->
-      <footer class="site-footer">
+      <footer id="footer" class="site-footer navbar navbar-fixed-bottom">
           <div class="text-center">
               2016 - Desarrollo Web
-              <a ui-sref="main" class="go-top">
-                  <i class="fa fa-laptop"></i>
-              </a>
+              <!--<a ui-sref="main" class="go-top">
+                  <i class="fa fa-angle-double-up"></i>
+              </a>-->
           </div>
       </footer>
       <!--footer end-->
+
+
   </section>
+
   
 	</body>
-    
+
     <!-- Controllers -->
 	<script src="app/signup/signup-controller.js"></script>
 	<script src="app/navigation/navigation-controller.js"></script>
 	<script src="app/profile/edit-profile-controller.js"></script>
-    <script src="app/main/main-controller.js"></script>
-    
+  <script src="app/main/main-controller.js"></script>
+
 	<!-- Libraries -->
 	<script src="node_modules/ng-file-upload/dist/ng-file-upload.js"></script>
 	<script src="node_modules/ng-file-upload/dist/ng-file-upload-all.js"></script>
 	<script src="node_modules/ng-file-upload/dist/ng-file-upload-shim.js"></script>
     
-	
+   <!-- js placed at the end of the document so the pages load faster -->
+	<script src="assets/js/fancybox/jquery.fancybox.js"></script>    
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="assets/js/jquery.scrollTo.min.js"></script>
+    <script src="assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    
+     <script src="assets/js/common-scripts.js"></script>
+
+    <!--script for this page-->
+  
+  <script type="text/javascript">
+      $(function() {
+        //    fancybox
+          jQuery(".fancybox").fancybox();
+      });
+
+  </script>
+  
+  <script>
+      //custom select box
+
+      $(function(){
+          $("select.styled").customSelect();
+      });
+
+  </script>
+ 
+
+
 </html>

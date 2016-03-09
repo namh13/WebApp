@@ -23,7 +23,7 @@ module.exports.postResource = function(req,res){
             User.findById(userId, function(err, userData){
                 var user = userData;
                 var resource = new Resource();
-                resource.user = user;
+                resource.user = user.username || user.email;
                 resource.userId = user._id;
                 resource.userImage = user.image;
                 resource.video = savePath;
@@ -33,7 +33,6 @@ module.exports.postResource = function(req,res){
                         res.json({status: 500})
                     } else{
                         console.log("save successful");
-
                         res.json({status: 200})
                     }
                 })
@@ -41,3 +40,15 @@ module.exports.postResource = function(req,res){
         }
     })
 }; 
+
+module.exports.getResource = function(req, res){
+    Resource.find({})
+        .sort({date: -1})
+        .exec(function(err, allResources){
+            if(err){
+                res.error(err)
+            }else{
+                res.json(allResources);
+            }
+        })
+}

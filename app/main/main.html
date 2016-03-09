@@ -1,36 +1,83 @@
-<div class="col-sn-18 col-sm-offset-1" ng-controller="NavigationController">    
-   <p class="panel"> 
-   <div ng-show="loggedIn">
-        <div class="row" ng-controller="MainController">
+<div class="col-md-8">
+    <div class="col-md-8 col-sm-offset-1" ng-controller="NavigationController">
+
+        <div ng-show="loggedIn">
+            <div class="row" ng-controller="MainController">
             <textarea ng-model="newWaste"
-                ng-keypress="sendWaste($event)"
-                class="form-control"
-                placeholder="Nueva Publicacion.... presiona Enter">
+                      ng-keypress="sendWaste($event)"
+                      class="form-control"
+                      placeholder="Nueva Publicacion... presiona Enter">
             </textarea>
-        </div>
-        
-        <div class="row">
-            <div class="button" ngf-select ng-model="file" name="file" ngf-pattern="'video/*'" accept="'video/*'">
-                Subir un video
+                <div>
+                    <input type="button" value="Post" class="btn btn-primary" ng-click="sendWasteClick()">
+                    <input type="button" value="Subir un video" class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'video/*'" accept="'video/*'">
+                </div>
+
             </div>
         </div>
-    </p>
+
     </div>
-    
-    <div class="row" ng-controller="MainController" >
-        <table class="waste-section">
-            <tr> <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">Hay {{difference}} nuevas publicaciones</a></tr>
-            <tr ng-repeat="waste in wastes">
-                <td>{{waste.user}}
-                    <image ng-src="{{waste.userImage}}" class="ing-responsive">
-                </td>
-                
-                <td
-                    <strong>{{waste.date | date: 'MM/dd/yyyy hh:mm'}}</strong> <br>
-                    <p>{{waste.content}}</p>
-                    
-                </td>
-            </tr>
-        </table> 
-     </div>
+
+    <div class="col-md-8 col-sm-offset-1" ng-controller="MainController" >
+      <section class="wrapper site-min-height">
+        <h3><i class="fa fa-angle-right"></i>xD</h3>
+        <hr>
+        <div class="row">
+            <table class="waste-section">
+                <tr> <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">Hay {{difference}} nuevas publicaciones</a></tr>
+                <tr ng-repeat="waste in wastes">
+
+                    <td class="row">
+                        
+                        <div class="project-wrapper">
+		                    <div class="project">
+		                        <div class="photo-wrapper">
+		                            <div class="photo">
+		                            	<a class="fancybox" href="{{waste.userImage}}"><img class="img-responsive"  src="{{waste.userImage}}" alt="" onclick="$.fn.fancybox.close();"></a>
+		                            </div>
+		                            <div class="overlay"></div>
+		                        </div>
+		                    </div>
+		                </div>
+                    </td>
+
+                    <td class="row">
+                        <div class="col-md-8">
+                            <div >
+                                <strong>{{waste.date | date: 'MM/dd/yyyy hh:mm'}}</strong> <br>
+                                <p>{{waste.content}}</p>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+            
+            <table class="resource-section">
+                <tr ng-repeat="resource in resources">
+
+                    <td class="row">
+                        <div class="col-md-12">
+                            
+                            <div class="videoUiWrapper thumbnail">
+                                <video  src="{{resource.video}}" controls>
+                                </video>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="row">
+                        <div class="col-md-8">
+                            <div >
+                                <p>{{resource.user}}</p>
+                                <strong>{{resource.date | date: 'MM/dd/yyyy hh:mm'}}</strong> <br>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+     </section>
+    </div>
 </div>
