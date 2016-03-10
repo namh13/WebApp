@@ -74,6 +74,12 @@
             }
             
             function getWastes (initial){
+                var data={};
+                if($scope.user){
+                    data.following = angular.copy($scope.user.following);
+                   // data.following.push({userId: $scope.user._id})
+                }
+                console.log(data);
                 $http.get('api/waste/get').success(function (response){
                     if(initial){
                         $scope.wastes = response;

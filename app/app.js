@@ -39,6 +39,12 @@
                     templateUrl: "app/navigation/login.html",
                     controller: "NavigationController"
              })
+
+                .state('follow',{
+                    url:"/follow-users",
+                    templateUrl:"app/follow/follow.html",
+                    controller:"FollowController"
+                })
 		})
         /*.run(function($rootScope){
              $rootScope.$on('$stateChangeStart',  function(event, toState, toParams, fromState){ 

@@ -10,6 +10,8 @@ var profileController = require('./server/controllers/profile-controller');
 var wasteController = require('./server/controllers/waste-controller');
 var resourceController = require('./server/controllers/resource-controller');
 
+var usersControer=require('./server/controllers/users-controller');
+
 mongoose.connect('mongodb://localhost:27017/webdev');
 
 app.use(bodyParser.json());
