@@ -8,6 +8,7 @@
               $scope.user = JSON.parse(localStorage['User-Data']);
               console.log($scope.user.username);
               console.log($scope.user.email);
+              console.log($scope.user.bio);
               $rootScope.loggedIn = true;
             }
  

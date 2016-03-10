@@ -27,19 +27,33 @@
 			}
 		};
 
-		$scope.updateUsername = function(){
+		$scope.update = function(){
 			var request = {
 				userId: $scope.user._id,
 				username: $scope.user.username
+			};
+			var request2 = {
+				userId: $scope.user._id,
+				bio: $scope.user.bio
 			}
 
 		$http.post('api/profile/updateUsername', request).success(function(){
+			console.log(request);
 			console.log("success");
 		}).error(function(error){
-			console.log("error");
+			console.log(error);
 		})
-		};
 
+			$http.post('api/profile/updateBio', request2).success(function(){
+				console.log(request2);
+				console.log("success bio");
+			}).error(function(error){
+				console.log(error);
+			});
+
+			window.location.hash = '/index';
+		};
+/*
 		$scope.updateBio = function(){
 			var request = {
 				userId: $scope.user._id,
@@ -52,6 +66,6 @@
 			console.log(error);
 		});
 		}
-
+*/
 	}]);
 }());
