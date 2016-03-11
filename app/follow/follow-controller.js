@@ -1,4 +1,3 @@
-
 (function(){
 	angular.module('WebDev')
 	.controller('FollowController', ['$scope', '$http', function($scope, $http){

@@ -4,7 +4,7 @@
         function($scope, $http, $interval, $rootScope, Upload){
             
         
-          if(localStorage['User-Data']){
+          if(localStorage['User-Data'] !== undefined){
               $scope.user = JSON.parse(localStorage['User-Data']);
               console.log($scope.user.username);
               console.log($scope.user.email);
@@ -75,12 +75,12 @@
             
             function getWastes (initial){
                 var data={};
-                if($scope.user){
+                if ($scope.user){
                     data.following = angular.copy($scope.user.following);
-                   // data.following.push({userId: $scope.user._id})
+                    data.following.push({userId: $scope.user._id})
                 }
                 console.log(data);
-                $http.get('api/waste/get').success(function (response){
+                $http.get('api/waste/get').success(function (response){/*modificado .get por .post, y ',data'*/
                     if(initial){
                         $scope.wastes = response;
                     }else{
@@ -108,11 +108,11 @@
                 if($scope.incomingWastes){
                 $scope.difference = $scope.incomingWastes.length - $scope.wastes.length;
                 }
-                if($scope.incomingResources){
+                /*if($scope.incomingResources){
                 $scope.difference = $scope.incomingResources.length - $scope.resources.length;
-                }
+                }*/
                 console.log("this is working");
-            }, 5000) //5 segundos para hacer la retroalimentacion de Publicaciones
+            }, 5000); //5 segundos para hacer la retroalimentacion de Publicaciones
             
             $scope.setNewWastes = function(){
                 $scope.wastes = angular.copy($scope.incomingWastes);

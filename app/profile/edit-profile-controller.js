@@ -1,6 +1,7 @@
 (function(){
 	angular.module('WebDev')
-	.controller('EditProfileController', ['Upload', '$scope', '$state', '$http', function(Upload, $scope, $state, $http){
+	.controller('EditProfileController', ['Upload', '$scope', '$state', '$http',
+										function(Upload, $scope, $state, $http){
 		
 		$scope.user = JSON.parse(localStorage['User-Data']) || undefined;
 
