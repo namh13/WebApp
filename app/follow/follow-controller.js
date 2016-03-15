@@ -10,7 +10,7 @@
 		})
 		
 		$scope.follow = function(userId, wasterId) {
-			request = { userId: userId,
+			var request = { userId: userId,
 				     wasterId: wasterId};
 			$http.post('api/users/follow', request).then(function(){
 				console.log("following ", wasterId);

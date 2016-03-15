@@ -42,6 +42,9 @@ app.get('/api/waste/get', wasteController.getWastes);
 // Resource
 app.post('/api/resource/post', resourceController.postResource);
 app.get('/api/resource/get', resourceController.getResource);
+
+//User
+app.get('/api/users/get', usersController.getUsers);
 app.post('/api/users/follow',usersController.followUser);
 
 app.listen('3000', function(){
