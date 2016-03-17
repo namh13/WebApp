@@ -45,6 +45,12 @@
                     templateUrl:"app/follow/follow.html",
                     controller:"FollowController"
                 })
+
+                .state('video',{
+                    url: "/videos",
+                    templateUrl: "app/video/video.html",
+                    controller: "VideoController"
+                })
 		})
         /*.run(function($rootScope){
              $rootScope.$on('$stateChangeStart',  function(event, toState, toParams, fromState){ 

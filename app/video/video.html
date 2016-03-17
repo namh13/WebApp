@@ -1,0 +1,46 @@
+<div class="col-md-8">
+    <div class="col-md-12 col-sm-offset-1" ng-controller="NavigationController">
+
+        <div ng-show="loggedIn">
+                <div>
+                    <br>
+                    <input type="button" value="Subir un video" class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'video/*'" accept="'video/*'">
+                </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-8 col-sm-offset-1" ng-controller="VideoController" >
+      <section class="wrapper site-min-height">
+        <h3><i class="fa fa-youtube-play"> </i> Video Tutoriales</h3>
+        <hr>
+        <div class="row">
+            
+            <table class="resource-section">
+                <tr ng-repeat="resource in resources">
+
+                    <td class="row">
+                        <div class="col-md-12">
+                            
+                            <div class="videoUiWrapper thumbnail">
+                                <video  src="{{resource.video}}" controls>
+                                </video>
+                            </div>
+                        </div>
+                    </td>
+
+                    <td class="row">
+                        <div class="col-md-8">
+                            <div >
+                                <p>{{resource.user}}</p>
+                                <strong>{{resource.date | date: 'MM/dd/yyyy hh:mm'}}</strong> <br>
+                            </div>
+                        </div>
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+     </section>
+    </div>
+</div>

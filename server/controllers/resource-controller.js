@@ -49,6 +49,7 @@ module.exports.getResource = function(req, res){
                 res.error(err)
             }else{
                 res.json(allResources);
+                console.log(allResources)
             }
         })
 }
