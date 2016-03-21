@@ -1,27 +1,30 @@
 <div class="col-md-8">
     <div class="col-md-8 col-sm-offset-6" ng-controller="NavigationController">
-
+        <h3><i class="fa fa-bell "></i>&nbsp; Feed</h3>
+        <hr>
         <div ng-show="loggedIn">
             <div class="row" ng-controller="MainController">
-            <textarea ng-model="newWaste"
-                      ng-keypress="sendWaste($event)"
-                      class="form-control"
-                      placeholder="Nueva Publicacion... presiona Enter">
-            </textarea>
-                <div>
-                    <input type="button" value="Post" class="btn btn-primary" ng-click="sendWasteClick()">
-                    <input type="button" value="Subir un video" class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'video/*'" accept="'video/*'">
-                </div>
+                <form class="form-group">
+                    <textarea ng-model="newWaste"
+                              ng-keypress="sendWaste($event)"
+                              class="form-control"
+                              placeholder="Nueva Publicacion... presiona Enter">
+                    </textarea>
+                    <div>
+                        <input type="button" value="Post" class="btn btn-primary" ng-click="sendWasteClick()">
+                        <input type="button" value="Subir un video" class="btn btn-primary" ngf-select ng-model="file" name="file" ngf-pattern="'video/*'" accept="'video/*'">
+                    </div>
+                </form>
+
 
             </div>
         </div>
 
     </div>
 
-    <div class="col-md-8 col-sm-offset-4" ng-controller="MainController" >
+    <div class="col-md-8 col-sm-offset-6" ng-controller="MainController" >
       <section class="wrapper site-min-height">
-        <h3><i class="fa fa-angle-right"></i>xD</h3>
-        <hr>
+          <hr>
         <div class="row">
             <table class="waste-section">
                 <tr> <a ng-if="incomingWastes.length > 0" ng-click="setNewWastes()">Hay {{difference}} nuevas publicaciones</a></tr>
@@ -60,8 +63,9 @@
                     <td class="row">
                         <div class="col-md-12">
                             
-                            <div class="videoUiWrapper thumbnail">
-                                <video  src="{{resource.video}}" controls>
+                            <div class=" thumbnail">
+                                <video controls>
+                                    <source src="{{resource.video}}" type="video/mp4">
                                 </video>
                             </div>
                         </div>
